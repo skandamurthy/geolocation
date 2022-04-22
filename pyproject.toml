@@ -1,0 +1,58 @@
+[tool.poetry]
+name = "verloop"
+version = "0.1.0"
+description = ""
+authors = ["skanda <skandasneha@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+fastapi = "^0.75.2"
+requests = "^2.27.1"
+python-decouple = "^3.6"
+black = "^22.3.0"
+uvicorn = "^0.17.6"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 120
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | \.env
+  | _build
+  | buck-out
+  | build
+  | dist
+)/
+'''
+
+[tool.pylint.FORMAT]
+max-line-length="120"
+
+[tool.pylint.REPORTS]
+reports="no"
+
+[tool.pylint.BASIC]
+good-names = "_,setUp,tearDown,maxDiff"
+
+[tool.pylint.MESSAGE_CONTROL]
+disable = """
+    line-too-long,
+    abstract-method,
+    no-member,
+    c-extension-no-member,
+    logging-fstring-interpolation,
+    broad-except,
+    pointless-statement,
+"""
+enable = "useless-suppression"

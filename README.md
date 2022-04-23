@@ -18,14 +18,20 @@ Documentation is available [here](https://python-poetry.org/docs/)
 
 After the installation, navigate inside the parent dir and run the following command
 ```
-poetry init
+poetry install
 ```
 
-### Adding package
+### Docker Run
+If you don't want to deal with the package dependencies, you can just run the docker
+Steps:
+1. Build the image
 ```
-poetry add <package>
+docker build -t <image_name> ./  
 ```
-After adding the package, please do reload the app
+2. Once the image is built, you can run the container
+```
+docker run -d --name <container_name> -p 80:80 <image_name>
+```
 
 Note: 
 1. All the project files are present (including the .env file)
